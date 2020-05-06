@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.pythonPath": "~/.virtualenvs/wisetech0.1/bin/python"
+	}
+}
