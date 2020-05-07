@@ -1,5 +1,11 @@
 # Source : Github python gitignore template
 
+# Personnal settings
+
+*.pyc
+app.db
+app/static/*.jpg
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

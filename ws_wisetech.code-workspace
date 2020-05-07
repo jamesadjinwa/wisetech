@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "~/.virtualenvs/wisetech0.1/bin/python"
+		"python.pythonPath": "~/.virtualenvs/wisetech0.1/bin/python",
+		"python.linting.pylintArgs": ["--load-plugins", "pylint_flask"]
 	}
 }
