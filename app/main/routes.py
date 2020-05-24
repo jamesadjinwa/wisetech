@@ -2,10 +2,11 @@ from datetime import datetime
 from flask import render_template, current_app, jsonify, redirect, \
     url_for, flash, g, request
 from flask_login import current_user, login_required
+from flask_user import roles_required
 from app.main.forms import EditUserProfileForm, CreateTicketForm
 from flask_babel import _, get_locale
 from app import db
-from app.models import User
+from app.models import User, Group, Role, Client, Service, Equipment, Ticket
 from app.main import bp
 
 
@@ -50,11 +51,19 @@ def edit_user_profile():
     form = EditUserProfileForm(current_user.username)
     if form.validate_on_submit():
         current_user.username = form.username.data
+        current_user.email = form.email.data
         db.session.commit()
         flash(_('Your changes have been saved.'))
         return redirect(url_for('main.edit_user_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
+        form.email.data = current_user.email
     return render_template('edit_user_profile.html', title=_('Edit User Profile'),
                            form=form)
+
+# @bp.route('/admin/edit_profile', methods=['GET', 'POST'])
+# @roles_required('Admin')
+# def edit_profile():
+#     form = EditProfileForm()
+#     if form.validate_on_submit():
 

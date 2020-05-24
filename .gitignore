@@ -5,6 +5,7 @@
 *.pyc
 app.db
 app/static/*.jpg
+migrations/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
